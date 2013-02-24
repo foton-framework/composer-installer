@@ -1,0 +1,11 @@
+{
+    "name":     "foton/installer",
+    "type":     "composer-installer",
+    "license":  "MIT",
+    "autoload": {
+        "psr-0": {"Foton\\Composer": "src/"}
+    },
+    "extra": {
+        "class": "Foton\\Composer\\Installer"
+    }
+}
