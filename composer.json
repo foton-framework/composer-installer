@@ -6,6 +6,10 @@
         "psr-0": {"Foton\\Composer": "src/"}
     },
     "extra": {
-        "class": "Foton\\Composer\\Installer"
-    }
+        "class": "Foton\\Composer\\Installer",
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev"
 }

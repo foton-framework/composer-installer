@@ -16,10 +16,10 @@ class Installer extends LibraryInstaller
 
     public function getInstallPath(PackageInterface $package)
     {
+        list($vendor, $name) = explode('/', $package->getPreName());
+
         switch ($package->getType())
         {
-            list($vendor, $name) = explode('/', $package->getName());
-
             case 'foton-core':
                 return 'framework/';
 
