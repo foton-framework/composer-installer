@@ -5,22 +5,36 @@ use Composer\Installer\LibraryInstaller;
 
 class Installer extends LibraryInstaller
 {
+    protected $supported_packages = array(
+        'foton-core',
+        'foton-extension',
+        // 'foton-component',
+        // 'foton-application',
+    );
+
+    //--------------------------------------------------------------------------
+
     public function getInstallPath(PackageInterface $package)
     {
-        // $prefix = substr($package->getPrettyName(), 0, 23);
-        // if ('phpdocumentor/template-' !== $prefix) {
-        //     throw new \InvalidArgumentException(
-        //         'Unable to install template, phpdocumentor templates '
-        //         .'should always start their package name with '
-        //         .'"phpdocumentor/template-"'
-        //     );
-        // }
+        switch ($package->getType())
+        {
+            list($vendor, $name) = explode('/', $package->getName());
 
-        return 'framework/';
+            case 'foton-core':
+                return 'framework/';
+
+            case 'foton-extension':
+                return 'extensions/' . $name . '/';
+        }
     }
+
+    //--------------------------------------------------------------------------
 
     public function supports($packageType)
     {
-        return 'foton-core' === $packageType;
+        return in_array($packageType, $this->supported_packages);
     }
+
+    //--------------------------------------------------------------------------
+
 }
