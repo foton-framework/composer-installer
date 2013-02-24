@@ -16,7 +16,7 @@ class Installer extends LibraryInstaller
         //     );
         // }
 
-        return 'framework/' . $package->getPrettyName();
+        return 'framework/';
     }
 
     public function supports($packageType)
