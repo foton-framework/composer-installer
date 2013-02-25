@@ -8,6 +8,7 @@ class Installer extends LibraryInstaller
     protected $supported_packages = array(
         'foton-core',
         'foton-extension',
+        'foton-docs',
         // 'foton-component',
         // 'foton-application',
     );
@@ -22,6 +23,9 @@ class Installer extends LibraryInstaller
         {
             case 'foton-core':
                 return 'framework/';
+
+            case 'foton-docs':
+                return 'docs/';
 
             case 'foton-extension':
                 return 'extensions/' . $name . '/';
